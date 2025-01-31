@@ -28,6 +28,7 @@ def get_chennel_id(youtube) -> str:
 
     return response_items[0].get("id")
 
+
 def get_playlists_of_channel(youtube, channel_id: str):
     if not channel_id:
         return []
@@ -35,14 +36,14 @@ def get_playlists_of_channel(youtube, channel_id: str):
     nextPageToken = None
 
     playlists = []
-    
+
     while True:
         request = youtube.playlists().list(
-                part="snippet",
-                channelId=channel_id,
-                maxResults="50",
-                pageToken=nextPageToken
-                )
+            part="snippet",
+            channelId=channel_id,
+            maxResults="50",
+            pageToken=nextPageToken
+        )
         response = request.execute()
 
         items = response.get("items")
@@ -55,7 +56,8 @@ def get_playlists_of_channel(youtube, channel_id: str):
 
             id = item.get("id", "")
 
-            playlists.append({"title": title, "url": f"https://www.youtube.com/playlist?list={id}"})
+            playlists.append(
+                {"title": title, "url": f"https://www.youtube.com/playlist?list={id}"})
 
         print(f"{len(playlists)}/{response.get("pageInfo").get("totalResults")}")
 
@@ -67,7 +69,6 @@ def get_playlists_of_channel(youtube, channel_id: str):
     return reversed(playlists)
 
 
-
 def main(api_key: str, handle: str, style: str):
     youtube = get_youtube_client(api_key)
     channel_id = get_chennel_id(youtube)
@@ -76,7 +77,7 @@ def main(api_key: str, handle: str, style: str):
         return (None, "The channel is not found.")
 
     playlists = get_playlists_of_channel(youtube, channel_id)
-    
+
     result = []
     for playlist in playlists:
         title = playlist.get("title")
