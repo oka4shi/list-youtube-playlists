@@ -18,7 +18,7 @@ This script retrieves all playlists of a YouTube channel using its handle and fo
 ## Usage
 Run the script with the following command:
 ```sh
-python3 script.py <style> <handle>
+python3 main.py <style> <handle>
 ```
 
 ### Arguments
@@ -31,7 +31,7 @@ python3 script.py <style> <handle>
 
 ### Example
 ```sh
-python3 script.py Markdown @examplechannel
+python3 main.py Markdown @examplechannel
 ```
 
 Use the shell's redirections(`> file_name`) to save the results in a file as needed.
