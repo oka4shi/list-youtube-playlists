@@ -1,7 +1,7 @@
 # YouTube Playlist Fetcher
 
 ## Overview
-This script retrieves all playlists of a YouTube channel using its handle and formats the output in different styles (Markdown, Scrapbox, MediaWiki, PukiWiki). It uses the YouTube Data API v3.
+This script retrieves all playlists of a YouTube channel using its handle and formats the output in different styles (Markdown, MediaWiki, PukiWiki). It uses the YouTube Data API v3.
 
 ## Installation
 1. Install required dependencies:
@@ -23,10 +23,9 @@ python3 main.py <style> <handle>
 
 ### Arguments
 - `<style>`: The output format. Supported values(case-sensitive):
-  - `Markdown`
-  - `Scrapbox`
-  - `MediaWiki`
-  - `PukiWiki`
+  - `Markdown` ...  Markdown style: `[Name_of_a_playlist](URL)`
+  - `MediaWiki` ... MediaWiki or Scrapbox style: `[Name_of_a_playlist URL]`
+  - `PukiWiki` ... Pukiwiki or WIKIWIKI style: `[Name_of_a_playlist>URL]`
 - `<handle>`: The YouTube channel handle (e.g., `@channelname`)
 
 ### Example

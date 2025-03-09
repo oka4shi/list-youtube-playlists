@@ -77,9 +77,9 @@ def main(api_key: str, handle: str, style: str):
 
         if style == "Markdown":
             result.append(f"[{title}]({url})")
-        elif style == "Scrapbox" or style == "MediaWiki":
+        elif style == "MediaWiki":
             result.append(f"[{title} {url}]")
-        elif style == "WIKIWIKI":
+        elif style == "PukiWiki":
             result.append(f"[[{title}>{url}]]")
         else:
             return (None, "Incorrect style")
